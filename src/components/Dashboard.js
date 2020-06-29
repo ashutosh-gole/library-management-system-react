@@ -5,6 +5,7 @@ import SignInForm from './SignInForm';
 import BooksPage from './BooksPage';
 import DashboardHome from './DashboardHome';
 import AddBookPage from './AddBookPage';
+import Users from './Users';
 
 import '../css/Dashboard.css'
 
@@ -58,9 +59,10 @@ class Dashboard extends Component {
             <div className="MenuItem">Issue / Returns</div>
           </div>
           <div className="Content">
-            <BooksPage />
+            {/* <BooksPage /> */}
             {/* <DashboardHome/> */}
             {/* <AddBookPage /> */}
+            <Users />
           </div>
         </div>
       </div>

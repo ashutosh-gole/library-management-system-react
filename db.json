@@ -1,39 +1,40 @@
 {
   "users": [
     {
-      "email": "ashutoshsgole@gmail.com",
-      "hasAgreed": true,
       "name": "ashutosh gole",
-      "password": "123456",
+      "email": "ashutoshg@gmail.com",
       "id": 1
     },
     {
-      "email": "a@gmail.com",
-      "password": "a",
-      "name": "A",
-      "hasAgreed": true,
+      "name": "udayaditya",
+      "email": "udayaditya@gmail.com",
       "id": 2
     },
     {
-      "email": "rht@yopmail.com",
+      "email": "asg@gmail.com",
       "password": "123456",
-      "name": "rohit",
+      "name": "asg",
       "hasAgreed": true,
       "id": 3
     },
     {
-      "email": "rahul.y.dudhane@gmailc.om",
-      "password": "123",
-      "name": "rahul",
+      "email": "rohit@yopmail.com",
+      "password": "123456",
+      "name": "rohit",
       "hasAgreed": true,
       "id": 4
+    },
+    {
+      "name": "rahul dudhane",
+      "email": "rahul.y.dudhane@gmailc.om",
+      "id": 5
     },
     {
       "email": "sagar@gmail.com",
       "password": "123321",
       "name": "sagar",
       "hasAgreed": true,
-      "id": 5
+      "id": 6
     }
   ],
   "books": [
