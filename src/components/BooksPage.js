@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
-import SignUpForm from './SignUpForm';
-import SignInForm from './SignInForm';
 import axios from "axios";
-
-import '../css/BooksPage.css';
-
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from 'react-modal';
+
+import SignUpForm from './SignUpForm';
+import SignInForm from './SignInForm';
+
+import '../css/BooksPage.css';
+
 
 class BooksPage extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class BooksPage extends Component {
     this.getData = this.getData.bind(this);
     this.editBook = this.editBook.bind(this);
     this.deleteBook = this.deleteBook.bind(this);
+    this.goToBookDetailsPage = this.goToBookDetailsPage.bind(this);
   }
 
   componentDidMount() {
@@ -85,12 +87,16 @@ class BooksPage extends Component {
       })
   }
 
+  goToBookDetailsPage(id) {
+    this.props.history.push(`/dashboard/book/${id}`);
+  }
+
   render() {
     return (
       <div className="BooksPage">
         {
           this.state.books.map((book) => (
-            <div className="Book">
+            <div key={book.isbn} className="Book" onClick={() => this.goToBookDetailsPage(book.id)}>
               <div className="BookHeader">
                 <div className="BookTitle">{book.title}</div>
                 <div>

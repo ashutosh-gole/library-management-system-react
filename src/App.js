@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path="/"><Redirect to="/main" /></Route>
           <Route path="/main" component={MainPage}></Route>
           <Route path="/dashboard" component={Dashboard}></Route>
-          <Route component={NotFoundPage}></Route>
+          <Route path="*" component={NotFoundPage}></Route>
         </Switch>
       </Router>
     );

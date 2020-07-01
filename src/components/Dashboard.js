@@ -9,10 +9,12 @@ import {
   useRouteMatch,
   Redirect
 } from 'react-router-dom';
+import ReactTooltip from "react-tooltip";
 
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 import BooksPage from './BooksPage';
+import BookDetailsPage from './BookDetailsPage';
 import DashboardHome from './DashboardHome';
 import LibraryInfo from './LibraryInfo';
 import BookRequestPage from './BookRequestPage';
@@ -32,6 +34,7 @@ class Dashboard extends Component {
       loggedIn: true
     };
 
+    this.addBook = this.addBook.bind(this);
     this.logout = this.logout.bind(this);
   }
 
@@ -41,6 +44,10 @@ class Dashboard extends Component {
     });
   }
 
+  addBook() {
+    this.props.history.push("/dashboard/add-book");
+  }
+
   render() {
     if (!this.state.loggedIn) {
       return <Redirect to="/" />
@@ -48,7 +55,13 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <div className="Header">
-          <div className="Name">Library Management System</div>
+          <div className="HeadeLeftContent">
+            <div className="Name">Library Management System</div>
+            <button className="AddBookButton mr-20" data-tip data-for="addBook" onClick={this.addBook}>+</button>
+            <ReactTooltip id="addBook" place="right" effect="solid" type="info">
+              Add Book
+            </ReactTooltip>
+          </div>
           <div className="LogDetails">
             <div className="UserName">Welcome Ashutosh !</div>
             <button className="LogoutButton mr-20" onClick={this.logout}>Logout</button>
@@ -72,6 +85,8 @@ class Dashboard extends Component {
               <Route path="/dashboard/book-request" component={BookRequestPage}></Route>
               <Route path="/dashboard/library-info" component={LibraryInfo}></Route>
               <Route path="/dashboard/issue-returns" component={IssueReturnBooks}></Route>
+              <Route path="/dashboard/add-book" component={AddBookPage}></Route>
+              <Route path="/dashboard/book/:id" component={BookDetailsPage}></Route>
             </Switch>
             {/* <BooksPage /> */}
             {/* <DashboardHome/> */}

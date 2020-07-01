@@ -35,7 +35,7 @@ class SignInForm extends Component {
     console.log(password);
     if (email == "asg@gmail.com" && password == "123456") {
 
-      
+      // this.props.history.push(`/dashboard/`);
       this.setState({
         loggedIn: true
       });
