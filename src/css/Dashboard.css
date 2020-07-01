@@ -70,12 +70,20 @@
   width: 100%;
   font-size: 20px;
   font-weight: bold;
-  padding: 14px 14px;
+  padding: 16px 16px;
   cursor: pointer;
+  color: rgb(68, 57, 57);
+  text-decoration: none;
+  border-radius: 0 20px 20px 0;
+}
+
+.MenuItemActive--active {
+  background-color: rgb(53, 116, 110);
+  color: rgb(245, 245, 245);
 }
 
 .MenuItem:hover {
-  background-color: rgb(53, 116, 110);
+  background-color: rgb(105, 149, 145);
 }
 
 .Content {

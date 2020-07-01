@@ -237,35 +237,5 @@
       ],
       "userId": 3
     }
-  ],
-  "FligthList": [
-    {
-      "id": 1,
-      "flightNumber": "Ind123",
-      "flightName": "Indigo Gold",
-      "flightcompanyName": "Indigo",
-      "flightTotalSeat": 200
-    },
-    {
-      "id": 2,
-      "flightNumber": "King123",
-      "flightName": "Kingfisher Premium",
-      "flightcompanyName": "Kingfisher",
-      "flightTotalSeat": 250
-    }
-  ],
-  "FlightSchedule": [
-    {
-      "id": 1,
-      "flightId": 1,
-      "fromCityId": 1,
-      "toCityId": 2,
-      "price": "5530",
-      "bookingSeats": 10,
-      "scheduleDate": "2020-06-25",
-      "departuteTime": "12.30 pm",
-      "arrivalTime": "03.30 pm",
-      "duration": "3h"
-    }
   ]
 }

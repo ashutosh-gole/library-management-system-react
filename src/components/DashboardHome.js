@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import '../css/DashboardHome.css'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink,
+  Switch,
+  useParams,
+  useRouteMatch,
+  Redirect
+} from 'react-router-dom';
 import axios from "axios";
+
+import '../css/DashboardHome.css'
 
 class DashboardHome extends Component {
   constructor(props) {
     super(props);
+
+    this.goToLibraryBooks = this.goToLibraryBooks.bind(this);
+    this.goToLibraryMembers = this.goToLibraryMembers.bind(this);
+    this.goToIssueReturnBooks = this.goToIssueReturnBooks.bind(this);
   }
 
   state = {
@@ -50,10 +64,22 @@ class DashboardHome extends Component {
 
   }
 
+  goToLibraryBooks() {
+    this.props.history.push("/dashboard/library-books");
+  }
+
+  goToLibraryMembers() {
+    this.props.history.push("/dashboard/library-members");
+  }
+
+  goToIssueReturnBooks() {
+    this.props.history.push("/dashboard/issue-returns");
+  }
+
   render() {
     return (
       <div className="DashboardHome">
-        <div className="HomeItem">
+        <div className="HomeItem" onClick={this.goToLibraryBooks}>
           <div className="ItemName">
             Books
           </div>
@@ -61,7 +87,7 @@ class DashboardHome extends Component {
             {this.state.bookData.length}
           </div>
         </div>
-        <div className="HomeItem">
+        <div className="HomeItem" onClick={this.goToLibraryMembers}>
           <div className="ItemName">
             Library Members
           </div>
@@ -69,7 +95,7 @@ class DashboardHome extends Component {
             {this.state.userData.length}
           </div>
         </div>
-        <div className="HomeItem">
+        <div className="HomeItem" onClick={this.goToIssueReturnBooks}>
           <div className="ItemName">
             Issued Books
           </div>

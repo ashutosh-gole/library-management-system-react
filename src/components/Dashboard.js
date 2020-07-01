@@ -14,6 +14,9 @@ import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 import BooksPage from './BooksPage';
 import DashboardHome from './DashboardHome';
+import LibraryInfo from './LibraryInfo';
+import BookRequestPage from './BookRequestPage';
+import IssueReturnBooks from './IssueReturnBooks';
 import AddBookPage from './AddBookPage';
 import Users from './Users';
 import '../css/Dashboard.css'
@@ -53,12 +56,12 @@ class Dashboard extends Component {
         </div>
         <div className="MainConetnt">
           <div className="Menu">
-            <div className="MenuItem"><Link to="/dashboard/dashboard">Dashboard</Link></div>
-            <div className="MenuItem"><Link to="/dashboard/library-books">Library Books</Link></div>
-            <div className="MenuItem"><Link to="/dashboard/library-members">Library Members</Link></div>
-            <div className="MenuItem"><Link to="/dashboard/book-request">Book Request</Link></div>
-            <div className="MenuItem"><Link to="/dashboard/library-info">Library Info</Link></div>
-            <div className="MenuItem"><Link to="/dashboard/issue-returns">Issue / Returns</Link></div>
+            <NavLink activeClassName="MenuItemActive--active" className="MenuItem" to="/dashboard/dashboard">Dashboard</NavLink>
+            <NavLink activeClassName="MenuItemActive--active" className="MenuItem" to="/dashboard/library-books">Library Books</NavLink>
+            <NavLink activeClassName="MenuItemActive--active" className="MenuItem" to="/dashboard/library-members">Library Members</NavLink>
+            <NavLink activeClassName="MenuItemActive--active" className="MenuItem" to="/dashboard/book-request">Book Request</NavLink>
+            <NavLink activeClassName="MenuItemActive--active" className="MenuItem" to="/dashboard/library-info">Library Info</NavLink>
+            <NavLink activeClassName="MenuItemActive--active" className="MenuItem" to="/dashboard/issue-returns">Issue / Returns</NavLink>
           </div>
           <div className="Content">
             <Switch>
@@ -66,9 +69,9 @@ class Dashboard extends Component {
               <Route path="/dashboard/dashboard" component={DashboardHome}></Route>
               <Route path="/dashboard/library-books" component={BooksPage}></Route>
               <Route path="/dashboard/library-members" component={Users}></Route>
-              <Route path="/dashboard/book-request" component={BooksPage}></Route>
-              <Route path="/dashboard/library-info" component={BooksPage}></Route>
-              <Route path="/dashboard/issue-returns" component={BooksPage}></Route>
+              <Route path="/dashboard/book-request" component={BookRequestPage}></Route>
+              <Route path="/dashboard/library-info" component={LibraryInfo}></Route>
+              <Route path="/dashboard/issue-returns" component={IssueReturnBooks}></Route>
             </Switch>
             {/* <BooksPage /> */}
             {/* <DashboardHome/> */}
