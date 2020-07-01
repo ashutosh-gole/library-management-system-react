@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 
@@ -20,9 +28,9 @@ class MainPage extends Component {
            or
           <NavLink to="/main/sign-up" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Sign Up</NavLink>
             </div>
-              <Route exact path="/" component={SignInForm}></Route>
-              <Route path="/main/sign-in" component={SignInForm}></Route>
-              <Route path="/main/sign-up" component={SignUpForm}></Route>
+            <Route exact path="/main/"><Redirect to="/main/sign-in" /></Route>
+            <Route path="/main/sign-in" component={SignInForm}></Route>
+            <Route path="/main/sign-up" component={SignUpForm}></Route>
           </div>
         </div>
       </Router>

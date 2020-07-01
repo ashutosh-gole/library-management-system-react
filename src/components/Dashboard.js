@@ -1,39 +1,41 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink, Switch, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink,
+  Switch,
+  useParams,
+  useRouteMatch,
+  Redirect
+} from 'react-router-dom';
+
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 import BooksPage from './BooksPage';
 import DashboardHome from './DashboardHome';
 import AddBookPage from './AddBookPage';
 import Users from './Users';
-
 import '../css/Dashboard.css'
 
 class Dashboard extends Component {
+
   constructor(props) {
     super(props);
+
+    // let { path, url } = useRouteMatch();
 
     this.state = {
       loggedIn: true
     };
 
     this.logout = this.logout.bind(this);
-    this.goToDashboard = this.goToDashboard.bind(this);
-    this.goToBooks = this.goToBooks.bind(this);
   }
 
   logout() {
     this.setState({
       loggedIn: false
     });
-  }
-
-  goToDashboard() {
-
-  }
-
-  goToBooks() {
-
   }
 
   render() {
@@ -51,18 +53,27 @@ class Dashboard extends Component {
         </div>
         <div className="MainConetnt">
           <div className="Menu">
-            <div className="MenuItem" onClick={this.goToDashboard}>Dashboard</div>
-            <div className="MenuItem" onClick={this.goToBooks}>Library Books</div>
-            <div className="MenuItem">Library Members</div>
-            <div className="MenuItem">Book Request</div>
-            <div className="MenuItem">Library Info</div>
-            <div className="MenuItem">Issue / Returns</div>
+            <div className="MenuItem"><Link to="/dashboard/dashboard">Dashboard</Link></div>
+            <div className="MenuItem"><Link to="/dashboard/library-books">Library Books</Link></div>
+            <div className="MenuItem"><Link to="/dashboard/library-members">Library Members</Link></div>
+            <div className="MenuItem"><Link to="/dashboard/book-request">Book Request</Link></div>
+            <div className="MenuItem"><Link to="/dashboard/library-info">Library Info</Link></div>
+            <div className="MenuItem"><Link to="/dashboard/issue-returns">Issue / Returns</Link></div>
           </div>
           <div className="Content">
+            <Switch>
+              <Route exact path="/dashboard/"><Redirect to="/dashboard/dashboard" /></Route>
+              <Route path="/dashboard/dashboard" component={DashboardHome}></Route>
+              <Route path="/dashboard/library-books" component={BooksPage}></Route>
+              <Route path="/dashboard/library-members" component={Users}></Route>
+              <Route path="/dashboard/book-request" component={BooksPage}></Route>
+              <Route path="/dashboard/library-info" component={BooksPage}></Route>
+              <Route path="/dashboard/issue-returns" component={BooksPage}></Route>
+            </Switch>
             {/* <BooksPage /> */}
             {/* <DashboardHome/> */}
             {/* <AddBookPage /> */}
-            <Users />
+            {/* <Users /> */}
           </div>
         </div>
       </div>
