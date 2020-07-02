@@ -1,8 +1,8 @@
 .UsersPage {
-  /* height: 100vh; */
-  height: 780px;
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .PageTitle {

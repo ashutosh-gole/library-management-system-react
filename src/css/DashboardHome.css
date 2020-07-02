@@ -1,11 +1,8 @@
 .DashboardHome {
-    height: 100vh;
-    /* height: 780px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* overflow-y: scroll; */
   }
   
   .HomeItem {

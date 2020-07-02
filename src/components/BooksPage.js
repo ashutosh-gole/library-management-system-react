@@ -6,10 +6,11 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from 'react-modal';
+import Icon from '@material-ui/core/Icon';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
-
 import '../css/BooksPage.css';
 
 
@@ -93,7 +94,7 @@ class BooksPage extends Component {
       <div className="BooksPage">
         {
           this.state.books.map((book) => (
-            <div key={book.isbn} className="Book" onClick={() => this.goToBookDetailsPage(book.id)}>
+            <div key={book.id} className="Book">
               <div className="BookHeader">
                 <div className="BookTitle">{book.title}</div>
                 <div>
@@ -101,25 +102,27 @@ class BooksPage extends Component {
                   <button className="DeleteButton mr-20" onClick={() => this.deleteBook(book.id)}>Delete</button>
                 </div>
               </div>
-              <div className="BookContent">
-                <div className="BookImg">
-                  <img src={book.thumbnailUrl}></img>
+              <Tooltip title="Go To Book Details" aria-label="Go To Book Details" placement="left" arrow>
+                <div className="BookContent" onClick={() => this.goToBookDetailsPage(book.id)}>
+                  <div className="BookImg">
+                    <img src={book.thumbnailUrl}></img>
+                  </div>
+                  <div className="BookInfo">
+                    <div className="BookShortDescription">
+                      {book.shortDescription}
+                    </div>
+                    <div>
+                      ISBN - {book.isbn}
+                    </div>
+                    <div>
+                      Authors - {book.authors.map((author) => (
+                      <i>{author},</i>
+                    )
+                    )}
+                    </div>
+                  </div>
                 </div>
-                <div className="BookInfo">
-                  <div className="BookShortDescription">
-                    {book.shortDescription}
-                  </div>
-                  <div>
-                    ISBN - {book.isbn}
-                  </div>
-                  <div>
-                    Authors - {book.authors.map((author) => (
-                    <i>{author},</i>
-                  )
-                  )}
-                  </div>
-                </div>
-              </div>
+              </Tooltip>
             </div>
           )
           )

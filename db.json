@@ -1,40 +1,74 @@
 {
   "users": [
     {
-      "name": "ashutosh gole",
-      "email": "ashutoshg@gmail.com",
+      "name": "ashutosh",
+      "email": "ashutosh@gmail.com",
+      "password": "123456",
+      "hasAgreed": true,
       "id": 1
     },
     {
       "name": "udayaditya",
       "email": "udayaditya@gmail.com",
+      "password": "123456",
+      "hasAgreed": true,
       "id": 2
     },
     {
+      "name": "asg",
       "email": "asg@gmail.com",
       "password": "123456",
-      "name": "asg",
       "hasAgreed": true,
       "id": 3
     },
     {
+      "name": "rohit",
       "email": "rohit@yopmail.com",
       "password": "123456",
-      "name": "rohit",
       "hasAgreed": true,
       "id": 4
     },
     {
-      "name": "rahul dudhane",
-      "email": "rahul.y.dudhane@gmailc.om",
+      "name": "rahul",
+      "email": "rahul@gmail.com",
+      "password": "123456",
+      "hasAgreed": true,
       "id": 5
     },
     {
+      "name": "sagar",
       "email": "sagar@gmail.com",
       "password": "123321",
-      "name": "sagar",
       "hasAgreed": true,
       "id": 6
+    },
+    {
+      "name": "mahesh",
+      "email": "mahesh@gmail.com",
+      "password": "123456",
+      "hasAgreed": true,
+      "id": 7
+    },
+    {
+      "name": "shubham",
+      "email": "shubham@yopmail.com",
+      "password": "123456",
+      "hasAgreed": true,
+      "id": 8
+    },
+    {
+      "name": "manoj",
+      "email": "manoj@gmailc.om",
+      "password": "123456",
+      "hasAgreed": true,
+      "id": 9
+    },
+    {
+      "name": "vaibhav",
+      "email": "vaibhav@gmail.com",
+      "password": "123321",
+      "hasAgreed": true,
+      "id": 10
     }
   ],
   "books": [

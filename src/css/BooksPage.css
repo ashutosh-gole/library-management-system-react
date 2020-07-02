@@ -1,6 +1,5 @@
 .BooksPage {
-  /* height: 100vh; */
-  height: 780px;
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -18,7 +17,6 @@
   display: flex;
   border: 1px solid rgb(77, 97, 97);
   flex-direction: column;
-  cursor: pointer;
 }
 
 .BookHeader {
@@ -65,6 +63,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  cursor: pointer;
 }
 
 .BookImg {

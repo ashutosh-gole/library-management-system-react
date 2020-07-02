@@ -1,7 +1,5 @@
 .AddBookPage {
-  height: 100vh;
-  /* height: 780px; */
-  /* margin: 16px */
+  height: calc(100vh - 100px);
   background-color: #2e4158;
 }
 

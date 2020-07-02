@@ -9,6 +9,8 @@ import {
   useRouteMatch,
   Redirect
 } from 'react-router-dom';
+import Icon from '@material-ui/core/Icon';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
@@ -21,9 +23,6 @@ import IssueReturnBooks from './IssueReturnBooks';
 import AddBookPage from './AddBookPage';
 import Users from './Users';
 import '../css/Dashboard.css'
-
-import Icon from '@material-ui/core/Icon';
-import Tooltip from '@material-ui/core/Tooltip';
 
 class Dashboard extends Component {
 
