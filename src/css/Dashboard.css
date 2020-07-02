@@ -2,7 +2,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  color:rgb(92, 54, 31);
+  color: rgb(92, 54, 31);
 }
 
 .Header {
@@ -55,15 +55,15 @@
 }
 
 .LogoutButton {
-  background-color: #52C4B9;
+  background-color: #52c4b9;
   color: white;
   border: none;
   outline: none;
   border-radius: 25px;
   padding: 12px;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: 500;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .MainConetnt {

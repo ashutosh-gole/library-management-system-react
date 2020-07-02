@@ -10,8 +10,6 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import SignUpForm from './components/SignUpForm';
-import SignInForm from './components/SignInForm';
 import MainPage from './components/MainPage';
 import Dashboard from './components/Dashboard';
 import NotFoundPage from './pages/NotFoundPage';

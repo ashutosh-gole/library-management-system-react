@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 
 class SignUpForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       email: '',

@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
-import SignUpForm from './SignUpForm';
-import SignInForm from './SignInForm';
 import axios from "axios";
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from 'react-modal';
@@ -22,12 +19,11 @@ const customStyles = {
 };
 
 class Users extends Component {
-
   constructor(props) {
+    super(props);
+
     // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
     Modal.setAppElement('#root')
-
-    super(props);
 
     this.state = {
       open: false,
@@ -81,6 +77,7 @@ class Users extends Component {
 
   updateUser(e) {
     e.preventDefault();
+
     axios.put(`http://localhost:3003/users/${this.state.id}`, {
       name: this.state.name,
       email: this.state.email
@@ -184,35 +181,35 @@ class Users extends Component {
           }
         </div>
 
-        <div>
-          <Modal
-            isOpen={this.state.openEditModal}
-            id={this.state.id}
-            name={this.state.name}
-            email={this.state.email}
-            style={customStyles}
-          >
-            <div className="UpdateFormPage">
-              <div className="UpdateHeader">
-                <div className="UpdateTitle">Update User</div>
-                <button className="CloseButton" onClick={this.closeModal}>close</button>
-              </div>
-              <form className="FormFields" onSubmit={this.updateUser}>
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="name">name</label>
-                  <input type="text" id="name" className="FormField__Input" placeholder="Enter name" name="name" value={this.state.name} onChange={this.handleChange} />
-                </div>
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="email">email</label>
-                  <input type="text" id="email" className="FormField__Input" placeholder="Enter email" name="email" value={this.state.email} onChange={this.handleChange} />
-                </div>
-                <div className="FormField">
-                  <button className="FormField__Button mr-20 UpdateButton">Update User</button>
-                </div>
-              </form>
+        <Modal
+          isOpen={this.state.openEditModal}
+          id={this.state.id}
+          name={this.state.name}
+          email={this.state.email}
+          style={customStyles}
+        >
+          <div className="UpdateFormPage">
+            <div className="UpdateHeader">
+              <div className="UpdateTitle">Update User</div>
+              <button className="CloseButton" onClick={this.closeModal}>close</button>
             </div>
-          </Modal>
-        </div>
+            <form className="FormFields" onSubmit={this.updateUser}>
+              <div className="FormField">
+                <label className="FormField__Label" htmlFor="name">name</label>
+                <input type="text" id="name" className="FormField__Input" placeholder="Enter name" name="name" value={this.state.name} onChange={this.handleChange} />
+              </div>
+              <div className="FormField">
+                <label className="FormField__Label" htmlFor="email">email</label>
+                <input type="text" id="email" className="FormField__Input" placeholder="Enter email" name="email" value={this.state.email} onChange={this.handleChange} />
+              </div>
+              <div className="FormField">
+                <button className="FormField__Button mr-20 UpdateButton">Update User</button>
+              </div>
+            </form>
+          </div>
+        </Modal>
+
+        <ToastContainer />
 
         {/* <Snackbar
         anchorOrigin={{
@@ -224,7 +221,7 @@ class Users extends Component {
         onClose={this.handleClose}
         message="User Deleted Successfully"
       /> */}
-        <ToastContainer />
+
       </div>
     );
   }

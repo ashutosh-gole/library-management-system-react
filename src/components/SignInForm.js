@@ -36,7 +36,6 @@ class SignInForm extends Component {
         loggedIn: true
       });
     }
-
   }
 
   render() {

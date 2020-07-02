@@ -12,8 +12,6 @@ import {
 import Icon from '@material-ui/core/Icon';
 import Tooltip from '@material-ui/core/Tooltip';
 
-import SignUpForm from './SignUpForm';
-import SignInForm from './SignInForm';
 import BooksPage from './BooksPage';
 import BookDetailsPage from './BookDetailsPage';
 import DashboardHome from './DashboardHome';
@@ -25,11 +23,8 @@ import Users from './Users';
 import '../css/Dashboard.css'
 
 class Dashboard extends Component {
-
   constructor(props) {
     super(props);
-
-    // let { path, url } = useRouteMatch();
 
     this.state = {
       loggedIn: true

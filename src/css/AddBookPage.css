@@ -55,7 +55,7 @@
 }
 
 .FormField__Button {
-  background-color: #52c4b9;
+  background-color: #c2b332 !important;
   color: white;
   border: none;
   outline: none;
@@ -63,6 +63,19 @@
   padding: 15px 70px;
   font-size: 0.8em;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.GoToButton {
+  background-color: #c2b332;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  padding: 15px 70px;
+  font-size: 0.8em;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .FormField__Link {

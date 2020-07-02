@@ -1,14 +1,4 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  NavLink,
-  Switch,
-  useParams,
-  useRouteMatch,
-  Redirect
-} from 'react-router-dom';
 import axios from "axios";
 
 import '../css/DashboardHome.css'
@@ -17,15 +7,15 @@ class DashboardHome extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      bookData: [],
+      userData: [],
+      issueBookData: []
+    }
+
     this.goToLibraryBooks = this.goToLibraryBooks.bind(this);
     this.goToLibraryMembers = this.goToLibraryMembers.bind(this);
     this.goToIssueReturnBooks = this.goToIssueReturnBooks.bind(this);
-  }
-
-  state = {
-    bookData: [],
-    userData: [],
-    issueBookData: []
   }
 
   componentDidMount() {
@@ -39,7 +29,6 @@ class DashboardHome extends Component {
         console.log(err);
       })
 
-
     axios.get(`http://localhost:3003/users/`)
       .then((res) => {
         if (res.status == 200) {
@@ -50,7 +39,6 @@ class DashboardHome extends Component {
         console.log(err);
       })
 
-
     axios.get(`http://localhost:3003/issueBooks/`)
       .then((res) => {
         if (res.status == 200) {
@@ -60,7 +48,6 @@ class DashboardHome extends Component {
       .catch((err) => {
         console.log(err);
       })
-
   }
 
   goToLibraryBooks() {

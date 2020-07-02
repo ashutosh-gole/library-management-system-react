@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
 import axios from "axios";
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Modal from 'react-modal';
-import Icon from '@material-ui/core/Icon';
 import Tooltip from '@material-ui/core/Tooltip';
 
 import SignUpForm from './SignUpForm';
@@ -127,6 +125,7 @@ class BooksPage extends Component {
           )
           )
         }
+        <ToastContainer />
       </div>
     );
   }
