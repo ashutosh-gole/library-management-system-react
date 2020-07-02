@@ -32,6 +32,7 @@ class Dashboard extends Component {
 
     this.addBook = this.addBook.bind(this);
     this.logout = this.logout.bind(this);
+    this.goToHome = this.goToHome.bind(this);
   }
 
   logout() {
@@ -44,6 +45,10 @@ class Dashboard extends Component {
     this.props.history.push("/dashboard/add-book");
   }
 
+  goToHome() {
+    this.props.history.push("/dashboard/dashboard");
+  }
+
   render() {
     if (!this.state.loggedIn) {
       return <Redirect to="/" />
@@ -52,7 +57,9 @@ class Dashboard extends Component {
       <div className="Dashboard">
         <div className="Header">
           <div className="HeadeLeftContent">
-            <div className="Name">Library Management System</div>
+            <Tooltip title="Home" aria-label="Home" placement="top" arrow>
+              <div className="Name" onClick={this.goToHome}>Library Management System</div>
+            </Tooltip>
             <Tooltip title="Add Book" aria-label="add book" placement="right" arrow>
               <Icon style={{ color: 'green', fontSize: 60, cursor: 'pointer' }} onClick={this.addBook}>add_circle</Icon>
             </Tooltip>
