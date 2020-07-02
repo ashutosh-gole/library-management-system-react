@@ -36,7 +36,6 @@ class BooksPage extends Component {
       .then((res) => {
         if (res.status == 200) {
           this.setState({ books: res.data })
-          console.log("this.state.books", this.state.books)
         }
       })
       .catch((err) => {
@@ -71,8 +70,6 @@ class BooksPage extends Component {
   }
 
   deleteSelectedBook(id) {
-    console.log("deleteBook click id = ", id);
-
     axios.delete(`http://localhost:3003/books/${id}`)
       .then((res) => {
         if (res.status == 200) {

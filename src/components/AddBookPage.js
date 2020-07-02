@@ -42,10 +42,7 @@ class AddBookPage extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    console.log('The form was submitted with the following data:');
-    console.log(this.state);
-
+    
     let book = this.state;
 
     axios.post("http://localhost:3003/books", book).then((result) => {
@@ -53,8 +50,8 @@ class AddBookPage extends Component {
         alert("Book Addedd Successfully");
         // this.props.history.push("/dashboard/books");
       }
-    }).catch(error => {
-      console.log('Error');
+    }).catch(err => {
+      console.log(err);
     });
   }
 

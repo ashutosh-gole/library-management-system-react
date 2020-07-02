@@ -9,7 +9,6 @@ import {
   useRouteMatch,
   Redirect
 } from 'react-router-dom';
-import ReactTooltip from "react-tooltip";
 
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
@@ -22,6 +21,9 @@ import IssueReturnBooks from './IssueReturnBooks';
 import AddBookPage from './AddBookPage';
 import Users from './Users';
 import '../css/Dashboard.css'
+
+import Icon from '@material-ui/core/Icon';
+import Tooltip from '@material-ui/core/Tooltip';
 
 class Dashboard extends Component {
 
@@ -57,10 +59,9 @@ class Dashboard extends Component {
         <div className="Header">
           <div className="HeadeLeftContent">
             <div className="Name">Library Management System</div>
-            <button className="AddBookButton mr-20" data-tip data-for="addBook" onClick={this.addBook}>+</button>
-            <ReactTooltip id="addBook" place="right" effect="solid" type="info">
-              Add Book
-            </ReactTooltip>
+            <Tooltip title="Add Book" aria-label="add book" placement="right" arrow>
+              <Icon style={{ color: 'green', fontSize: 60, cursor: 'pointer' }} onClick={this.addBook}>add_circle</Icon>
+            </Tooltip>
           </div>
           <div className="LogDetails">
             <div className="UserName">Welcome Ashutosh !</div>
@@ -88,10 +89,6 @@ class Dashboard extends Component {
               <Route path="/dashboard/add-book" component={AddBookPage}></Route>
               <Route path="/dashboard/book/:id" component={BookDetailsPage}></Route>
             </Switch>
-            {/* <BooksPage /> */}
-            {/* <DashboardHome/> */}
-            {/* <AddBookPage /> */}
-            {/* <Users /> */}
           </div>
         </div>
       </div>

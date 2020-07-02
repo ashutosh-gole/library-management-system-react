@@ -30,9 +30,6 @@ class SignUpForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log('The form was submitted with the following data:');
-    console.log(this.state);
-
     let user = this.state;
 
     axios.post("http://localhost:3003/users", user).then((result) => {
@@ -40,8 +37,8 @@ class SignUpForm extends Component {
         alert("User Registered Successfully");
         this.props.history.push("/main/sign-in");
       }
-    }).catch(error => {
-      console.log('Error');
+    }).catch(err => {
+      console.log('Err');
     });
   }
 

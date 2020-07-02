@@ -55,7 +55,6 @@ class DashboardHome extends Component {
       .then((res) => {
         if (res.status == 200) {
           this.setState({ issueBookData: res.data })
-          console.log("this.state", this.state);
         }
       })
       .catch((err) => {

@@ -27,12 +27,8 @@ class SignInForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    console.log('The form was submitted with the following data:');
-    console.log(this.state);
+    
     const { email, password } = this.state;
-    console.log(email);
-    console.log(password);
     if (email == "asg@gmail.com" && password == "123456") {
 
       // this.props.history.push(`/dashboard/`);

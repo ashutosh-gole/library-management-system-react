@@ -3,14 +3,13 @@ import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-rou
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 import axios from "axios";
-
-import '../css/Users.css';
-
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from 'react-modal';
+
+import '../css/Users.css';
 
 const customStyles = {
   content: {
@@ -31,6 +30,7 @@ class Users extends Component {
     super(props);
 
     this.state = {
+      open: false,
       users: [],
       openEditModal: false,
       name: '',
@@ -45,6 +45,7 @@ class Users extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.updateUser = this.updateUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount() {
@@ -55,8 +56,7 @@ class Users extends Component {
     axios.get(`http://localhost:3003/users/`)
       .then((res) => {
         if (res.status == 200) {
-          this.setState({ users: res.data })
-          console.log("this.state.users", this.state.users)
+          this.setState({ users: res.data });
         }
       })
       .catch((err) => {
@@ -65,7 +65,6 @@ class Users extends Component {
   }
 
   editUser(user) {
-    console.log("editUser click user = ", user);
     this.setState({
       openEditModal: true,
       name: user.name,
@@ -82,8 +81,6 @@ class Users extends Component {
 
   updateUser(e) {
     e.preventDefault();
-    console.log("update user call");
-    console.log("user", this.state);
     axios.put(`http://localhost:3003/users/${this.state.id}`, {
       name: this.state.name,
       email: this.state.email
@@ -137,11 +134,10 @@ class Users extends Component {
   }
 
   deleteSelectedUser(id) {
-    console.log("deleteUser click id = ", id);
-
     axios.delete(`http://localhost:3003/users/${id}`)
       .then((res) => {
         if (res.status == 200) {
+          // this.setState({ open: true });
           this.getData();
           toast.success("User Deleted Successfully !", {
             position: toast.POSITION.BOTTOM_CENTER
@@ -152,6 +148,14 @@ class Users extends Component {
         console.log(err);
       })
   }
+
+  handleClose(event, reason) {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ open: false });
+  };
 
   render() {
     return (
@@ -210,6 +214,16 @@ class Users extends Component {
           </Modal>
         </div>
 
+        {/* <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        open={this.state.open}
+        autoHideDuration={6000}
+        onClose={this.handleClose}
+        message="User Deleted Successfully"
+      /> */}
         <ToastContainer />
       </div>
     );

@@ -17,7 +17,6 @@ class BookDetailsPage extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    console.log("id", id);
     this.getBookData(id);
   }
 
