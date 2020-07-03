@@ -38,7 +38,7 @@ class SignUpForm extends Component {
         this.props.history.push("/main/sign-in");
       }
     }).catch(err => {
-      console.log('Err');
+      console.log(err);
     });
   }
 

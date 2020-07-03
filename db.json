@@ -19,6 +19,9 @@
     {
       "name": "asg",
       "email": "asg@gmail.com",
+      "password": "123456",
+      "hasAgreed": true,
+      "userType": "member",
       "id": 3
     },
     {

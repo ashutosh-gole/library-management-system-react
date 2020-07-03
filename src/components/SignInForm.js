@@ -38,7 +38,6 @@ class SignInForm extends Component {
           users.forEach((user) => {
             if (user.email == email && user.password == password) {
               localStorage.setItem("user", JSON.stringify(user));
-              console.log("user", user);
               this.setState({
                 loggedIn: true
               });

@@ -33,7 +33,6 @@ class BookDetailsPage extends Component {
             authors: res.data.authors,
             categories: res.data.categories
           })
-          console.log("this.state.book", this.state.book)
         }
       })
       .catch((err) => {

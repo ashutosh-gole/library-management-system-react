@@ -39,10 +39,8 @@ class Dashboard extends Component {
   componentDidMount() {
     let userData = JSON.parse(localStorage.getItem("user"));
     this.setState({
-      user:userData
+      user: userData
     });
-    console.log("user",this.state.user);
-    
   }
 
   logout() {
