@@ -66,12 +66,16 @@ class Dashboard extends Component {
       <div className="Dashboard">
         <div className="Header">
           <div className="HeadeLeftContent">
-            <Tooltip title="Home" aria-label="Home" placement="top" arrow>
-              <div className="Name" onClick={this.goToHome}>Library Management System</div>
-            </Tooltip>
-            <Tooltip title="Add Book" aria-label="add book" placement="right" arrow>
-              <Icon style={{ color: 'green', fontSize: 60, cursor: 'pointer' }} onClick={this.addBook}>add_circle</Icon>
-            </Tooltip>
+            <div>
+              <Tooltip title="Home" aria-label="Home" placement="top" arrow>
+                <div className="Name" onClick={this.goToHome}>Library Management System</div>
+              </Tooltip>
+            </div>
+            <div>
+              <Tooltip title="Add Book" aria-label="add book" placement="right" arrow>
+                <Icon style={{ color: 'green', fontSize: 60, cursor: 'pointer' }} onClick={this.addBook}>add_circle</Icon>
+              </Tooltip>
+            </div>
           </div>
           <div className="LogDetails">
             <div className="UserName">Welcome {this.state.user.name} !</div>

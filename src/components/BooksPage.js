@@ -98,27 +98,29 @@ class BooksPage extends Component {
                   <button className="DeleteButton mr-20" onClick={() => this.deleteBook(book.id)}>Delete</button>
                 </div>
               </div>
-              <Tooltip title="Go To Book Details" aria-label="Go To Book Details" placement="left" arrow>
-                <div className="BookContent" onClick={() => this.goToBookDetailsPage(book.id)}>
-                  <div className="BookImg">
-                    <img src={book.thumbnailUrl}></img>
+              <div>
+                <Tooltip title="Go To Book Details" aria-label="Go To Book Details" placement="left" arrow>
+                  <div className="BookContent" onClick={() => this.goToBookDetailsPage(book.id)}>
+                    <div className="BookImg">
+                      <img src={book.thumbnailUrl}></img>
+                    </div>
+                    <div className="BookInfo">
+                      <div className="BookShortDescription">
+                        {book.shortDescription}
+                      </div>
+                      <div>
+                        ISBN - {book.isbn}
+                      </div>
+                      <div>
+                        Authors - {book.authors.map((author, index) => (
+                        <i key={index}>{author},</i>
+                      )
+                      )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="BookInfo">
-                    <div className="BookShortDescription">
-                      {book.shortDescription}
-                    </div>
-                    <div>
-                      ISBN - {book.isbn}
-                    </div>
-                    <div>
-                      Authors - {book.authors.map((author) => (
-                      <i>{author},</i>
-                    )
-                    )}
-                    </div>
-                  </div>
-                </div>
-              </Tooltip>
+                </Tooltip>
+              </div >
             </div>
           )
           )

@@ -63,15 +63,15 @@ class BookDetailsPage extends Component {
           <div className="BookInfoData">
             <div className="BookInfoDataItem">
               <span className="ItemName">Authors : </span>
-              {this.state.authors.map((author) => (
-                <i>{author},</i>
+              {this.state.authors.map((author, index) => (
+                <i key={index}>{author},</i>
               )
               )}
             </div>
             <div className="BookInfoDataItem">
               <span className="ItemName">Categories : </span>
-              {this.state.categories.map((categorie) => (
-                <i>{categorie},</i>
+              {this.state.categories.map((categorie, index) => (
+                <i key={index}>{categorie},</i>
               )
               )}
             </div>

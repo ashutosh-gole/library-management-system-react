@@ -41,7 +41,6 @@ class Users extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.updateUser = this.updateUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount() {
@@ -146,14 +145,6 @@ class Users extends Component {
       })
   }
 
-  handleClose(event, reason) {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    this.setState({ open: false });
-  };
-
   render() {
     return (
       <div className="UsersPage">
@@ -167,7 +158,7 @@ class Users extends Component {
           </div>
           {
             this.state.users.map((user) => (
-              <div className="UserTableRowData">
+              <div key={user.id} className="UserTableRowData">
                 <div className="DataItem">{user.id}</div>
                 <div className="DataItem">{user.name}</div>
                 <div className="DataItem">{user.email}</div>
@@ -183,7 +174,7 @@ class Users extends Component {
 
         <Modal
           isOpen={this.state.openEditModal}
-          id={this.state.id}
+          // id={this.state.id}
           name={this.state.name}
           email={this.state.email}
           style={customStyles}
@@ -210,18 +201,6 @@ class Users extends Component {
         </Modal>
 
         <ToastContainer />
-
-        {/* <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        open={this.state.open}
-        autoHideDuration={6000}
-        onClose={this.handleClose}
-        message="User Deleted Successfully"
-      /> */}
-
       </div>
     );
   }
