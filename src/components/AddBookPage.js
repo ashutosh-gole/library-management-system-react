@@ -47,15 +47,17 @@ class AddBookPage extends Component {
 
     let book = this.state;
 
-    axios.post("http://localhost:3003/books", book).then((res) => {
-      if (res.status == 201) {
-        toast.success("Book Added Successfully !", {
-          position: toast.POSITION.BOTTOM_CENTER
-        });
-      }
-    }).catch(err => {
-      console.log(err);
-    });
+    axios.post("http://localhost:3003/books", book)
+      .then((res) => {
+        if (res.status == 201) {
+          toast.success("Book Added Successfully !", {
+            position: toast.POSITION.BOTTOM_CENTER
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   goToLibraryBooks() {

@@ -7,8 +7,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Tooltip from '@material-ui/core/Tooltip';
 
-import SignUpForm from './SignUpForm';
-import SignInForm from './SignInForm';
 import '../css/BooksPage.css';
 
 

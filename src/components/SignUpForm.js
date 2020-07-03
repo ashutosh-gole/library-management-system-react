@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class SignUpForm extends Component {
       email: '',
       password: '',
       name: '',
-      hasAgreed: false
+      hasAgreed: false,
+      userType: "member"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,14 +34,18 @@ class SignUpForm extends Component {
 
     let user = this.state;
 
-    axios.post("http://localhost:3003/users", user).then((result) => {
-      if (result) {
-        alert("User Registered Successfully");
-        this.props.history.push("/main/sign-in");
-      }
-    }).catch(err => {
-      console.log(err);
-    });
+    axios.post("http://localhost:3003/users", user)
+      .then((res) => {
+        if (res.status == 201) {
+          toast.success("User Registered Successfully !", {
+            position: toast.POSITION.BOTTOM_CENTER
+          });
+          this.props.history.push("/main/sign-in");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -69,6 +75,7 @@ class SignUpForm extends Component {
             <button className="FormField__Button mr-20">Sign Up</button> <Link to="/main/sign-in" className="FormField__Link">I'm already member</Link>
           </div>
         </form>
+        <ToastContainer />
       </div>
     );
   }
