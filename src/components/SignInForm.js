@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import axios from "axios";
 
 class SignInForm extends Component {
   constructor(props) {
@@ -27,15 +28,29 @@ class SignInForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
-    const { email, password } = this.state;
-    if (email == "asg@gmail.com" && password == "123456") {
 
-      // this.props.history.push(`/dashboard/`);
-      this.setState({
-        loggedIn: true
-      });
-    }
+    let { email, password } = this.state;
+
+    axios.get(`http://localhost:3003/users/`)
+      .then((res) => {
+        if (res.status == 200) {
+          let users = res.data;
+          users.forEach((user) => {
+            if (user.email == email && user.password == password) {
+              localStorage.setItem("user", JSON.stringify(user));
+              console.log("user", user);
+              this.setState({
+                loggedIn: true
+              });
+              // this.props.history.push(`/dashboard/`);
+            }
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
   }
 
   render() {

@@ -36,6 +36,7 @@ class Dashboard extends Component {
   }
 
   logout() {
+    localStorage.removeItem("user");
     this.setState({
       loggedIn: false
     });

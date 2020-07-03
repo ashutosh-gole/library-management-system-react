@@ -87,7 +87,7 @@ class AddBookPage extends Component {
             <input type="text" id="longDescription" className="FormField__Input" placeholder="Enter Long Description" name="longDescription" value={this.state.longDescription} onChange={this.handleChange} />
           </div>
           <div className="FormField">
-            <button className="FormField__Button mr-20" onClick={this.handleSubmit}>Add Book</button>
+            <button className="GoToButton mr-20" onClick={this.handleSubmit}>Add Book</button>
             <button className="GoToButton mr-20" onClick={this.goToLibraryBooks}>Go To Library Books</button>
           </div>
         </form>
