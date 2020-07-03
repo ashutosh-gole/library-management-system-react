@@ -1,0 +1,75 @@
+.BookDetailsPage {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.HeaderData {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.HeaderIcon {
+  margin: 0 16px;
+}
+
+.PageHeader {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 16px;
+}
+
+.BookData {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 20px;
+  background-color: rgb(238, 238, 201);
+}
+
+.BookImageData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: 4px dotted firebrick;
+}
+
+.BookImage {
+  margin: 16px 0;
+}
+
+.BookTitle {
+  margin: 0 0 16px 0;
+}
+
+.BookInfoData {
+  display: flex;
+  flex-direction: column;
+  /* margin: 16px 0; */
+  padding: 16px;
+  border-bottom: 4px dotted firebrick;
+}
+
+.BookInfoDataItem {
+  margin: 8px 0;
+}
+
+.ItemName {
+  font-size: 18p;
+  font-weight: bold;
+}
+
+.BookLongDescription {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* margin: 16px 0; */
+  padding: 16px;
+  border-bottom: 4px dotted firebrick;
+}

@@ -27,12 +27,22 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      loggedIn: true
+      loggedIn: true,
+      user: {}
     };
 
     this.addBook = this.addBook.bind(this);
     this.logout = this.logout.bind(this);
     this.goToHome = this.goToHome.bind(this);
+  }
+
+  componentDidMount() {
+    let userData = JSON.parse(localStorage.getItem("user"));
+    this.setState({
+      user:userData
+    });
+    console.log("user",this.state.user);
+    
   }
 
   logout() {
@@ -66,7 +76,7 @@ class Dashboard extends Component {
             </Tooltip>
           </div>
           <div className="LogDetails">
-            <div className="UserName">Welcome Ashutosh !</div>
+            <div className="UserName">Welcome {this.state.user.name} !</div>
             <button className="LogoutButton mr-20" onClick={this.logout}>Logout</button>
           </div>
         </div>
